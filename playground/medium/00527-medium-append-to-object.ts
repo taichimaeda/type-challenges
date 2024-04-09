@@ -20,7 +20,7 @@
 /* _____________ Your Code Here _____________ */
 
 type AppendToObject<T, U extends string, V> = Compute<T & { [K in U]: V}>
-type Compute<T> = { [K in keyof T]: T[K] }
+type Compute<T> = { [P in keyof T]: T[P] }
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
