@@ -20,7 +20,8 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Flip<T extends Record<PropertyKey, string | number | bigint | boolean | null | undefined>> = {
+type Serializable = string | number | bigint | boolean | null | undefined
+type Flip<T extends Record<PropertyKey, Serializable>> = {
   [P in keyof T as `${T[P]}`]: P
 }
 
