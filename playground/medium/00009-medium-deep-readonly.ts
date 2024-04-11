@@ -41,11 +41,12 @@
 // trying to map its properties to `readonly` fails yielding an empty object instead.
 // There may be other objects that behaves similarly but at least
 // this suffices to pass the test cases.
-type DeepReadonly<T> = T extends object 
-  ? T extends Function
-    ? T
-    : { readonly [P in keyof T]: DeepReadonly<T[P]> }
-  : T
+type DeepReadonly<T> =
+  T extends object
+    ? T extends Function
+      ? T
+      : { readonly [P in keyof T]: DeepReadonly<T[P]> }
+    : T
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
