@@ -36,6 +36,7 @@ type MinusOneSub<
 type MinusOne<T extends number> = 
   T extends 0 ? -1 :
   T extends 1 ? 0 :
+  // Need to reverse string because we cannot extract the last char of a string.
   ParseInt<RemoveLeadingZeros<ReverseString<MinusOneSub<ReverseString<`${T}`>>>>>
 
 // type PopElement<T extends any[]> = 
